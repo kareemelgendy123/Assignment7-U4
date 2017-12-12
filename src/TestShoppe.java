@@ -23,7 +23,6 @@ public class TestShoppe {
    
     System.out.println("\n");
     
-    
     checkout.enterItem(new IceCream("Strawberry Ice Cream",145));
     checkout.enterItem(new Sundae("Vanilla Ice Cream",105, "Caramel", 50));
     checkout.enterItem(new Candy("Gummy Worms", 1.33, 89));

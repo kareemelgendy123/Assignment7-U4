@@ -8,18 +8,19 @@
  *
  * @author CHANGE_THIS_TO_YOUR_NAME
  */
-public class IceCream {
+public class IceCream extends DessertItem{
 
-    public IceCream(String name, int cost)
-    {
+    public IceCream(String name, int cost){
         
     }
 
-  
-    public String toString()
-    {
-     
+    @Override
+    public String toString(){
        
     }
-    
+
+    @Override
+    public int getCost() {
+        
+    }
 }

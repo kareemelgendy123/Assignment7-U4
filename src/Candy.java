@@ -8,18 +8,19 @@
  *
  * @author CHANGE_THIS_TO_YOUR_NAME
  */
-public class Candy {
+public class Candy extends DessertItem{
     
     
-    public Candy(String name, double weight, int pricePerLbs)
-    {
+    public Candy(String name, double weight, int pricePerLbs){
 
     }
 
- 
-    
-    public String toString()
-    {
+    @Override
+    public String toString(){
        
     }
+
+    @Override
+    public int getCost() {
+        
 }

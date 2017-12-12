@@ -8,18 +8,20 @@
  *
  * @author CHANGE_THIS_TO_YOUR_NAME
  */
-public class Cookie {
+public class Cookie extends DessertItem{
     
     
-    public Cookie(String name, int number, int pricePer12)
-    {
+    public Cookie(String name, int number, int pricePer12){
         
     }
 
-    
-    public String toString()
-    {
+    @Override
+    public String toString(){
         
     }
-    
+
+    @Override
+    public int getCost() {
+        
+    }
 }
