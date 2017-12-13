@@ -6,14 +6,31 @@
 
 /**
  *
- * @author CHANGE_THIS_TO_YOUR_NAME
+ * @author Kareem
  */
 public class Sundae extends IceCream{
     
+    // Instance variables
+    private String toppingName;
+    private int toppingCost;
+    private int cost;
 
-    
+    // Constructor
     public Sundae(String icName, int icCost, String toppingName, int toppingCost){
-       
+       super(icName, icCost);
+       this.toppingName = toppingName;
+       this.toppingCost = toppingCost;
+    }
+    
+    // Getting the topping name
+    public String getToppingName(){
+        return toppingName;
+    }
+    
+    // Getting the cost
+    public int getCost(){
+        cost = this.toppingCost + super.getCost();
+        return cost;
     }
 
     @Override

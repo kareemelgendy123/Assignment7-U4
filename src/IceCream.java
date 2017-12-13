@@ -6,21 +6,27 @@
 
 /**
  *
- * @author CHANGE_THIS_TO_YOUR_NAME
+ * @author Kareem
  */
 public class IceCream extends DessertItem{
+    
+    // Instance variables
+    private int cost;
 
+    // Constructor
     public IceCream(String name, int cost){
-        
+        super(name);
+        this.cost = cost;
     }
 
+    @Override
+    // Getting the cost
+    public int getCost() {
+        return cost;
+    }
+    
     @Override
     public String toString(){
-       
-    }
-
-    @Override
-    public int getCost() {
         
     }
 }
