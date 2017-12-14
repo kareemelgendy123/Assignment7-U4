@@ -17,18 +17,17 @@ public class Candy extends DessertItem{
     
     // Constructor
     public Candy(String name, double weight, int pricePerLbs){
-        super(name);
+        
+        // Calling the name from the super class
+        super(name);    
+        
+        // Assigning values to the instance variables
         this.weight = weight;
         this.pricePerLbs = pricePerLbs;
     }
-
-    @Override
-    public String toString(){
-        
-    }
     
     // Getting the price per pound
-    public int getPricePerLbs(){
+    public int getPricePerLbs(){ 
         return this.pricePerLbs;
     }
     
@@ -40,7 +39,19 @@ public class Candy extends DessertItem{
     @Override
     // Getting the cost for the candy
     public int getCost() {
-        cost = (int) Math.round(this.weight * this.pricePerLbs);
+        // Calculating the cost
+        cost = (int) Math.round(weight * pricePerLbs);
         return cost;
     }
+    
+    @Override
+    public String toString(){
+        
+        String output = "";
+        output += getWeight() + " @ " + DessertShoppe.cents2dollarsAndCents(getPricePerLbs()) + " / lbs\n";
+        output += getName() + " " + DessertShoppe.cents2dollarsAndCents(getCost());
+        
+        return output;
+    }
+   
 }

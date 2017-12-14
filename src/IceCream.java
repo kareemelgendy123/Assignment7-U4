@@ -14,19 +14,27 @@ public class IceCream extends DessertItem{
     private int cost;
 
     // Constructor
-    public IceCream(String name, int cost){
+    public IceCream(String name, int cost){  
+        
+        // Calling the name from the super class
         super(name);
+        
+        // Assigning a value to the instance variables
         this.cost = cost;
     }
 
     @Override
     // Getting the cost
-    public int getCost() {
+    public int getCost() {    
         return cost;
     }
-    
+
     @Override
     public String toString(){
         
+        String output = "";
+        output += getName() + "  " + DessertShoppe.cents2dollarsAndCents(getCost()) + "\n";
+        
+        return output;
     }
 }

@@ -17,18 +17,24 @@ public class Sundae extends IceCream{
 
     // Constructor
     public Sundae(String icName, int icCost, String toppingName, int toppingCost){
+       
+       // Calling the ice cream name and cost from super class
        super(icName, icCost);
+       
+       // Assigning values to the instance variables
        this.toppingName = toppingName;
        this.toppingCost = toppingCost;
     }
     
-    // Getting the topping name
+    // Getting the name of the topping
     public String getToppingName(){
         return toppingName;
     }
     
-    // Getting the cost
+    // Getting the cost = icCost + toppingCost
     public int getCost(){
+        
+        // Calculating the cost
         cost = this.toppingCost + super.getCost();
         return cost;
     }
@@ -36,5 +42,9 @@ public class Sundae extends IceCream{
     @Override
     public String toString(){
         
+        String output = super.toString();       
+        output += getToppingName() + " Sundae with " + getName() + " " + DessertShoppe.cents2dollarsAndCents(getCost());
+        
+        return output;
     }
 }

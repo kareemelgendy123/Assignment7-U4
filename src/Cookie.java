@@ -16,14 +16,18 @@ public class Cookie extends DessertItem{
     private int cost;
     
     // Constructor
-    public Cookie(String name, int number, int pricePer12){
+    public Cookie(String name, int number, int pricePer12){ 
+        
+        // Calling the name from the super class
         super(name);
+        
+        // Assigning values to the instance variables
         this.number = number;
         this.pricePer12 = pricePer12;       
     }
     
     // Getting the number of cookies
-    public int getNumber(){
+    public int getNumber(){  
         return this.number;
     }
     
@@ -35,12 +39,19 @@ public class Cookie extends DessertItem{
     @Override
     // Getting the cost
     public int getCost() {
-        cost = (int)Math.round(number / 12 * pricePer12);
+        
+        // Calculating the cost
+        cost = (int)Math.round(number * pricePer12 / 12);
         return cost;
     }
     
     @Override
-    public String toString(){
+    public String toString(){  
         
+        String output = "";
+        output += this.getName() + " @ " + DessertShoppe.cents2dollarsAndCents(getPricePer12()) + " / dz\n";
+        
+        return output;
     }
+    
 }
