@@ -37,11 +37,11 @@ public class Cookie extends DessertItem{
     }
 
     @Override
-    // Getting the cost
+    // Getting the cost of the cookie
     public int getCost() {
         
         // Calculating the cost
-        cost = (int)Math.round(number * pricePer12 / 12);
+        cost = (int) Math.round(number * pricePer12 / 12);
         return cost;
     }
     
@@ -49,7 +49,23 @@ public class Cookie extends DessertItem{
     public String toString(){  
         
         String output = "";
-        output += this.getName() + " @ " + DessertShoppe.cents2dollarsAndCents(getPricePer12()) + " / dz\n";
+        
+        // Converting the price from cents to dollars
+        String costHolder = DessertShoppe.cents2dollarsAndCents(getCost());
+         
+        // Outputting the item amount
+        output += this.getNumber() + " @ $" + DessertShoppe.cents2dollarsAndCents(getPricePer12()) + " /dz\n";
+        
+        // Ouputting the name of the cookie
+        output += this.getName();
+        
+        // Formatting the lines to fit the receipt width
+        for(int i = 0; i < DessertShoppe.RECEIPT_WIDTH - super.getName().length() - costHolder.length(); i++){
+            output += " ";
+        }
+        
+        // Outputting the price of the cookies 
+        output += DessertShoppe.cents2dollarsAndCents(getCost());
         
         return output;
     }

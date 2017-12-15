@@ -31,7 +31,7 @@ public class Sundae extends IceCream{
         return toppingName;
     }
     
-    // Getting the cost = icCost + toppingCost
+    // Getting the cost of the sundae
     public int getCost(){
         
         // Calculating the cost
@@ -42,8 +42,24 @@ public class Sundae extends IceCream{
     @Override
     public String toString(){
         
-        String output = super.toString();       
-        output += getToppingName() + " Sundae with " + getName() + " " + DessertShoppe.cents2dollarsAndCents(getCost());
+        String output = "";
+        
+        // Converting the price from cents to dollars
+        String costHolder = DessertShoppe.cents2dollarsAndCents(getCost());
+
+        // Outputting the topping name and sundae with..
+        output += getToppingName() + " Sundae with\n";
+        
+        // Outputting the name of the sundae
+        output += getName();
+        
+        // Formatting the lines to 30 characters
+        for(int i = 0; i < DessertShoppe.RECEIPT_WIDTH - super.getName().length() - costHolder.length(); i++){
+            output += " ";
+        }
+        
+        // Price of item
+        output += DessertShoppe.cents2dollarsAndCents(getCost());
         
         return output;
     }

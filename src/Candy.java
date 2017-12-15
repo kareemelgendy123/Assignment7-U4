@@ -11,9 +11,9 @@
 public class Candy extends DessertItem{
     
     // Instance variables
-    private double weight;
-    private int pricePerLbs;
-    private int cost;
+    private double weight; // Stores the weight of the candy
+    private int pricePerLbs; // Stores the price per pound
+    private int cost; // Stores the cost of the candy
     
     // Constructor
     public Candy(String name, double weight, int pricePerLbs){
@@ -22,8 +22,8 @@ public class Candy extends DessertItem{
         super(name);    
         
         // Assigning values to the instance variables
-        this.weight = weight;
-        this.pricePerLbs = pricePerLbs;
+        this.weight = weight; 
+        this.pricePerLbs = pricePerLbs; 
     }
     
     // Getting the price per pound
@@ -31,15 +31,16 @@ public class Candy extends DessertItem{
         return this.pricePerLbs;
     }
     
-    // Getting the price per weight
+    // Getting the weight
     public double getWeight(){
         return this.weight;
     }
 
     @Override
-    // Getting the cost for the candy
+    // Getting the cost of the candy
     public int getCost() {
-        // Calculating the cost
+        
+        // Calculating the cost of the candy
         cost = (int) Math.round(weight * pricePerLbs);
         return cost;
     }
@@ -48,8 +49,23 @@ public class Candy extends DessertItem{
     public String toString(){
         
         String output = "";
-        output += getWeight() + " @ " + DessertShoppe.cents2dollarsAndCents(getPricePerLbs()) + " / lbs\n";
-        output += getName() + " " + DessertShoppe.cents2dollarsAndCents(getCost());
+        
+        // Converting the cost from cents to dollars
+        String costHolder = DessertShoppe.cents2dollarsAndCents(getCost());
+       
+        // Outputting the item amount
+        output += getWeight() + " lbs. @ $" + DessertShoppe.cents2dollarsAndCents(getPricePerLbs()) + " /lb.\n";
+        
+        // Outputting the item name
+        output += getName();
+        
+        // Formatting the lines to fit the receipt width 
+        for(int i = 0; i < DessertShoppe.RECEIPT_WIDTH - super.getName().length() - costHolder.length(); i++){
+            output += " ";
+        }
+        
+        // Ouputting the price of the candy
+        output += DessertShoppe.cents2dollarsAndCents(getCost());
         
         return output;
     }
